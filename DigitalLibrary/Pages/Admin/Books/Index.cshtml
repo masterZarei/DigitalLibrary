@@ -8,7 +8,7 @@
         <div class="col-lg-9 col-md-9 col-12">
             <div class="card">
                 <div class="card-header d-flex">
-                    <a href="create.html" class="btn btn-primary"> ایجاد <i class="fa fa-plus"></i> </a>
+                    <a href="Create" class="btn btn-primary"> ایجاد <i class="fa fa-plus"></i> </a>
                     <h4 class="text-center mx-auto d-block"> مدیریت کتاب ها </h4>
                 </div>
                 <div class="card-body">
@@ -33,9 +33,9 @@
                                         <td class="text-center"> @item.Name </td>
                                         <td class="text-center"> @item.Author </td>
                                         <td class="text-center">
-                                            <a href="#"> <i class="fa fa-edit"></i> </a>
-                                            <a href="#"> <i class="fa fa-trash"></i> </a>
-                                            <a href="#"> <i class="fa fa-list"></i> </a>
+                                            <a asp-page="Edit" asp-route-Id="@item.Id"> <i class="fa fa-edit"></i> </a>
+                                            <a asp-page="Delete" asp-route-Id="@item.Id"> <i class="fa fa-trash"></i> </a>
+                                            <a asp-page="Details" asp-route-Id="@item.Id"> <i class="fa fa-list"></i> </a>
                                         </td>
                                     </tr>
                                 }

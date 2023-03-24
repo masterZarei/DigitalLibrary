@@ -1,0 +1,80 @@
+﻿@page
+@model DigitalLibrary.Pages.Admin.Books.CreateModel
+@{
+}
+<div class="container mt-5">
+    <div class="row">
+        <partial name="_Panel" />
+        <div class="col-lg-9 col-md-9 col-12">
+            <div class="card">
+                <div class="card-header d-flex">
+                    <h4 class="text-center mx-auto d-block"> ایجاد کتاب </h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label class="my-1"> نام </label>
+                                <input asp-for="Book.Name" class="form-control">
+                                <label class="my-1"> نام نویسنده </label>
+                                <input asp-for="Book.Author" class="form-control">
+                                <label class="my-1"> نام مترجم </label>
+                                <input asp-for="Book.Translator" class="form-control">
+                                <label class="my-2"> توضیحات </label>
+                                <textarea asp-for="Book.Description" class="form-control" rows="7"></textarea>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label class="my-1"> تاریخ انتشار </label>
+                                <input asp-for="Book.PublishDate" class="form-control">
+                                <label class="my-1"> عکس کتاب </label>
+                                <div class="custom-file">
+                                    <input asp-for="ImgUp" id="ImgUp" class="custom-file-input" type="file">
+                                    <label for="my-input" class="custom-file-label"> </label>
+                                </div>
+                                <img src="" id="imgPreview" class="border my-1 mx-auto d-block" width="120px" height="120px">
+                                <label> فایل pdf کتاب  </label>
+                                <div class="custom-file my-2">
+                                    <input asp-for="FileUp" id="my-input" class="custom-file-input" type="file">
+                                    <label for="my-input" class="custom-file-label"> </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <button type="submit" class="btn btn-success btn-block"> ثبت ! </button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <a asp-page="Index" class="btn btn-secondary btn-block"> بازگشت </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgPreview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+        $("#ImgUp").change(function () {
+            readURL(this);
+        });
+    </script>
+    }

@@ -1,0 +1,55 @@
+﻿@page
+@model DigitalLibrary.Pages.Admin.Books.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <partial name="_Panel" />
+        <div class="col-lg-9 col-md-9 col-12">
+            <div class="card">
+                <div class="card-header d-flex">
+                    <h4 class="text-center mx-auto d-block"> جزئیات کتاب کتاب </h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label class="my-1"> نام </label>
+                                <input asp-for="Book.Name" type="text" class="form-control" disabled>
+                                <label class="my-1"> نام نویسنده </label>
+                                <input asp-for="Book.Author" class="form-control" disabled>
+                                <label class="my-1"> نام مترجم </label>
+                                <input asp-for="Book.Translator" class="form-control" disabled>
+                                <label class="my-2"> توضیحات </label>
+                                <textarea disabled asp-for="Book.Description" class="form-control" rows="7"></textarea>
+
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label class="my-1"> تاریخ انتشار </label>
+                                <input asp-for="Book.PublishDate" class="form-control" disabled>
+                                <label class="my-1"> عکس کتاب </label>
+                                <img src="~/Images/@Model.Book.ImageUrl" class="border my-1 mx-auto d-block" width="120px" height="120px">
+
+                                <a href="~/Files/@Model.Book.FileUrl" target="_blank" class="btn btn-primary btn-block my-2"> دیدن pdf </a>
+
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-2">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <a asp-page="Edit" asp-route-Id="@Model.Book.Id" class="btn btn-success btn-block"> ویرایش ! </a>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <a asp-page="Index" class="btn btn-secondary btn-block"> بازگشت </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

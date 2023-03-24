@@ -1,0 +1,43 @@
+﻿@page
+@model DigitalLibrary.Pages.Admin.Books.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <partial name="_Panel" />
+        <div class="col-lg-9 col-md-9 col-12">
+            <div class="card">
+                <div class="card-header d-flex">
+                    <h4 class="text-center mx-auto d-block"> حذف کتاب </h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <input type="hidden" asp-for="Book.Id" />
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <img src="~/Images/@Model.Book.ImageUrl" alt="image-book" width="280px" height="280px">
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <label class="my-1"> نام کتاب </label>
+                                <input asp-for="Book.Name" type="text" class="form-control" disabled>
+                                <label class="my-1"> نام نویسنده </label>
+                                <input asp-for="Book.Author" type="text" class="form-control" disabled>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <button class="btn btn-danger btn-block" type="submit"> حذف کتاب </button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <a class="btn btn-secondary btn-block" asp-page="Index"> بازگشت </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
