@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using DigitalLibrary.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace DigitalLibrary.Data
@@ -9,5 +10,6 @@ namespace DigitalLibrary.Data
             : base(options)
         {
         }
+        public DbSet<User> Users { get; set; }
     }
 }

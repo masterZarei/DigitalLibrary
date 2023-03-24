@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DigitalLibrary.StaticValues;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DigitalLibrary.Pages
 {
+    [Authorize(Roles = SD.Admin)]
     public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
