@@ -1,0 +1,56 @@
+﻿@page
+@model DigitalLibrary.Pages.Admin.Books.IndexModel
+@{
+}
+<div class="container mt-5">
+    <div class="row">
+        <partial name="_Panel" />
+        <div class="col-lg-9 col-md-9 col-12">
+            <div class="card">
+                <div class="card-header d-flex">
+                    <a href="create.html" class="btn btn-primary"> ایجاد <i class="fa fa-plus"></i> </a>
+                    <h4 class="text-center mx-auto d-block"> مدیریت کتاب ها </h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-light table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th class="text-center"> عکس </th>
+                                <th class="text-center"> نام </th>
+                                <th class="text-center"> نام نویسنده </th>
+                                <th class="text-center"> مدیریت </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Books.Any())
+                            {
+                                @foreach (var item in Model.Books)
+                                {
+                                    <tr>
+                                        <td class="text-center">
+                                            <img src="~/Images/@item.ImageUrl" width="40px" height="40px" alt="book">
+                                        </td>
+                                        <td class="text-center"> @item.Name </td>
+                                        <td class="text-center"> @item.Author </td>
+                                        <td class="text-center">
+                                            <a href="#"> <i class="fa fa-edit"></i> </a>
+                                            <a href="#"> <i class="fa fa-trash"></i> </a>
+                                            <a href="#"> <i class="fa fa-list"></i> </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <h3 class="alert alert-info h3 text-center">کتابی موجود نیست</h3>
+                            }
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

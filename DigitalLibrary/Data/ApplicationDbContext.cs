@@ -11,5 +11,6 @@ namespace DigitalLibrary.Data
         {
         }
         public DbSet<User> Users { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }
