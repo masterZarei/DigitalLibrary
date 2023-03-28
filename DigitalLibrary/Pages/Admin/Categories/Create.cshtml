@@ -1,0 +1,29 @@
+﻿@page
+@model DigitalLibrary.Pages.Admin.Categories.CreateModel
+@{
+}
+<div class="container mt-5">
+    <div class="row">
+        <partial name="_Panel" />
+        <div class="col-lg-9 col-12">
+            <div class="card pb-4 text-center p-2">
+                <form method="post">
+                    <div class="card-header">
+                        <h4 class="h4 text-center"> ایجاد دسته بندی </h4>
+                    </div>
+                    <div class="row p-3">
+                        <h6 class="text-right my-3"> نام دسته بندی </h6>
+                        <input asp-for="Category.Name" placeholder="نام دسته بندی را وارد کنید . . . " class="form-control mt-2">
+
+                        <h6 class="text-right my-3"> توضیحات </h6>
+                        <textarea asp-for="Category.Description" id="discription" cols="15" rows="5" placeholder="توضیحات دسته بندی را وارد کنید" class="form-control"></textarea>
+
+
+                        <input type="submit" class="btn btn-success btn-block w-75 mx-auto d-block mt-3"
+                               value="تایید !">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

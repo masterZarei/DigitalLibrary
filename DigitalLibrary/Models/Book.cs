@@ -1,4 +1,5 @@
 ﻿using DigitalLibrary.Models.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DigitalLibrary.Models
 {
@@ -11,5 +12,9 @@ namespace DigitalLibrary.Models
         public string? FileUrl { get; set; }
         public string? Description { get; set; }
         public string? PublishDate { get; set; }
+
+        public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
+        public Category Category { get; set; }
     }
 }
