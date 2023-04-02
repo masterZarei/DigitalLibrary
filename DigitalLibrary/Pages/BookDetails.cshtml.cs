@@ -38,13 +38,22 @@ namespace DigitalLibrary.Pages
                 return Redirect($"/Identity/Account/Login?ReturnUrl=/BookDetails?Id={Book.Id}");
             }
 
-            var user = _db.Users.FirstOrDefaultAsync(a => a.UserName == User.Identity.Name);
+            var user = await _db.Users.FirstOrDefaultAsync(a => a.UserName == User.Identity.Name);
             if (user == null)
             {
                 return NotFound();
             }
+            var checkData = _db.DownloadedBooks.FirstOrDefaultAsync(a => a.userId == user.Id && a.BookId == Book.Id);
 
-
+            if (checkData.Result == null)
+            {
+                await _db.AddAsync(new DownloadedBook
+                {
+                    userId = user.Id,
+                    BookId = Book.Id
+                });
+                await _db.SaveChangesAsync();
+            }
 
 
 
