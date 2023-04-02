@@ -32,9 +32,10 @@
                                 <input asp-for="Book.PublishDate" class="form-control" disabled>
                                 <label class="my-1"> عکس کتاب </label>
                                 <img src="~/Images/@Model.Book.ImageUrl" class="border my-1 mx-auto d-block" width="120px" height="120px">
-
                                 <a href="~/Files/@Model.Book.FileUrl" target="_blank" class="btn btn-primary btn-block my-2"> دیدن pdf </a>
 
+                                <label class="my-2">دسته بندی</label>
+                                <span class="form-control">@Model.Book.Category.Name</span>
                             </div>
                         </div>
 

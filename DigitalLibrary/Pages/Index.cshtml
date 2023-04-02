@@ -4,7 +4,27 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (Model.Books.Any())
+{
+    @foreach (var item in Model.Books.Take(16))
+    {
+        <div class="col-lg-3 col-md-3 col-12 my-2">
+            <a asp-page="BookDetails" asp-route-Id="@item.Id">
+                <div class="card product-box">
+                    <div class="mother-imageBox">
+                        <img class="card-img-top" src="~/Images/@item.ImageUrl" alt="this is a img" height="250px">
+                    </div>
+                    <div class="card-body product-box-body">
+                        <h5 class="card-title h5 text-center text-success" style="font-size: 18px; font-weight: 600;">
+                            @item.Name
+                        </h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+}
+else
+{
+    <h4 class="m-auto alert alert-warning"> کتابی وجود ندارد </h4>
+}

@@ -40,6 +40,8 @@
                                     <input asp-for="FileUp" id="my-input" class="custom-file-input" type="file">
                                     <label for="my-input" class="custom-file-label"> </label>
                                 </div>
+                                <label class="my-2">دسته بندی</label>
+                                <select asp-for="SelectedOption" asp-items="@Model.Options" class="form-control"></select>
                             </div>
                         </div>
                         <div class="row mt-2">

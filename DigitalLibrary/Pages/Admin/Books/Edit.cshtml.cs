@@ -2,6 +2,8 @@ using DigitalLibrary.Data;
 using DigitalLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace DigitalLibrary.Pages.Admin.Books
 {
@@ -21,26 +23,49 @@ namespace DigitalLibrary.Pages.Admin.Books
         [BindProperty]
         public IFormFile? FileUp { get; set; }
 
+        #region DropDown
+        public SelectList Options { get; set; }
+        [BindProperty]
+        public string SelectedOption { get; set; }
+        #endregion
+
+
         public IActionResult OnGet(int Id)
         {
             if (Id == 0)
             {
                 return NotFound();
             }
-            Book = _db.Books.FirstOrDefault(a => a.Id == Id);
+            Book = _db.Books
+                .Include(a => a.Category)
+                .FirstOrDefault(a => a.Id == Id);
             if (Book == null)
             {
                 return NotFound();
             }
+            initCats();
             return Page();
         }
+        void initCats()
+        {
+            Options = new SelectList(_db.Categories, nameof(Category.Id), nameof(Category.Name), Book.CategoryId);
 
+        }
         public async Task<IActionResult> OnPost()
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid || string.IsNullOrWhiteSpace(SelectedOption))
             {
+                initCats();
                 return Page();
             }
+
+            int catId = Convert.ToInt32(SelectedOption);
+            Category category = _db.Categories.Find(catId);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            Book.CategoryId = catId;
 
             if (ImgUp != null)
             {

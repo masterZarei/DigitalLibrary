@@ -24,7 +24,9 @@ namespace DigitalLibrary.Pages.Admin.Books
                 return NotFound();
             }
 
-            Book = await _context.Books.FirstOrDefaultAsync(m => m.Id == id);
+            Book = await _context.Books
+                .Include(a=> a.Category)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
             if (Book == null)
             {
