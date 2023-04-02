@@ -12,6 +12,7 @@ namespace DigitalLibrary.Data
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<DownloadedBook> DownloadedBooks { get; set; }
         public DbSet<Category> Categories { get; set; }
     }
 }
