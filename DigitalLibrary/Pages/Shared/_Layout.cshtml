@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - کتابخانه دیجیتال</title>
+    <link rel="stylesheet" href="~/css/Style.css" />
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/bootstrap-rtl.min.css" />
     <link rel="stylesheet" href="~/lib/fontawesome/web/css/all.min.css" />
+    @await RenderSectionAsync("Links", required: false)
 </head>
 <body>
     <header>

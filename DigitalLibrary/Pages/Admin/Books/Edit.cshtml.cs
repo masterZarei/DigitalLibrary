@@ -91,7 +91,7 @@ namespace DigitalLibrary.Pages.Admin.Books
             }
             if (FileUp != null)
             {
-                string deletePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Files/", Book.FileUrl);
+                string deletePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Files/", Book.FileUrl == null ? "" : Book.FileUrl);
                 if (System.IO.File.Exists(deletePath))
                 {
                     System.IO.File.Delete(deletePath);

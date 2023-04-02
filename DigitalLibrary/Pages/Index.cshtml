@@ -3,7 +3,14 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<div class="row mb-3">
+    <div class="col-12">
+        <h3 class="my-2 mb-4 text-center h3 mx-auto d-block">به کتابخانه دیجیتال بزرگ من خوش آمدید</h3>
+        <img src="~/img/modern-technology-reading-books.jpg" class="mx-auto d-block img-fluid" />
+    </div>
 
+
+</div>
 @if (Model.Books.Any())
 {
     @foreach (var item in Model.Books.Take(16))
@@ -26,5 +33,5 @@
 }
 else
 {
-    <h4 class="m-auto alert alert-warning"> کتابی وجود ندارد </h4>
+    <h4 class="m-auto text-center alert alert-warning"> کتابی وجود ندارد </h4>
 }

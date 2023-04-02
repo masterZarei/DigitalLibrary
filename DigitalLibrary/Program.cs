@@ -1,5 +1,6 @@
 using DigitalLibrary.Data;
 using DigitalLibrary.Models;
+using DigitalLibrary.StaticValues;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,7 +21,21 @@ namespace DigitalLibrary
             builder.Services.AddDefaultIdentity<User>(/*options => options.SignIn.RequireConfirmedAccount = true*/)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            builder.Services.AddRazorPages();
+
+
+
+
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", p => p.RequireRole(SD.Admin));
+            });
+
+
+
+            builder.Services.AddRazorPages(options =>
+            {
+                options.Conventions.AuthorizeFolder("/Admin", "Admin");
+            });
 
             var app = builder.Build();
 

@@ -1,4 +1,5 @@
 ﻿@using DigitalLibrary.Models;
+@using DigitalLibrary.StaticValues;
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
@@ -14,9 +15,18 @@
                 <button type="submit" class="nav-link btn btn-link text-dark">خروج</button>
             </form>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" href="/Admin/Books">پنل کاربری</a>
-        </li>
+        @if (User.IsInRole(SD.Admin))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="/Admin/Books">پنل کاربری</a>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="/Panel">پنل کاربری</a>
+            </li>
+        }
     }
     else
     {

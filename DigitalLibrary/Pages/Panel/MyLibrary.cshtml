@@ -1,0 +1,35 @@
+﻿@page
+@model DigitalLibrary.Pages.Panel.MyLibraryModel
+@{
+}
+<div class="container mt-5">
+    <div class="row">
+        <partial name="_Panel" />
+        <div class="col-lg-9 col-md-9 col-12">
+            @if (Model.DBooks.Any())
+            {
+                @foreach (var item in Model.DBooks)
+                {
+                    <div class="col-lg-4 col-md-4 col-12 my-2">
+                        <a asp-page="/BookDetails" asp-route-Id="@item.Id">
+                            <div class="card product-box">
+                                <div class="mother-imageBox">
+                                    <img class="card-img-top" src="~/Images/@item.Book.ImageUrl" alt="this is a img" height="250px">
+                                </div>
+                                <div class="card-body product-box-body">
+                                    <h5 class="card-title h5 text-center text-success" style="font-size: 18px; font-weight: 600;">
+                                        @item.Book.Name
+                                    </h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+            }
+            else
+            {
+                <h4 class="m-auto alert text-center alert-warning"> کتابی وجود ندارد </h4>
+            }
+        </div>
+    </div>
+</div>
