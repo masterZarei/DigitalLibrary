@@ -1,6 +1,6 @@
 # 📚 DigitalLibrary
 
-## برای  [مشاهده دوره](https://toplearn.com/c/6275) کلیک کنید
+## برای  [مشاهده دوره](https://toplearn.com/c/5969) کلیک کنید
 
 Welcome to **DigitalLibrary**!  
 A practical ASP.NET Core (Razor Pages) project for managing a digital library — created as a hands-on assignment for the [TopLearn.com](https://toplearn.com/) course.  
@@ -86,14 +86,13 @@ DigitalLibrary/
 
 به **DigitalLibrary** خوش آمدید!  
 این پروژه یک کتابخانه دیجیتال بر بستر ASP.NET Core (Razor Pages) است که به عنوان پروژه عملی دوره سایت [TopLearn.com](https://toplearn.com/) پیاده‌سازی شده است.  
-لینک دوره: [دوره کتابخانه آنلاین](https://toplearn.com/c/5969)
+## لینک دوره: [دوره کتابخانه آنلاین](https://toplearn.com/c/5969)
 مناسب برای تمرین عملیات CRUD، احراز هویت، مدیریت فایل و پیاده‌سازی ساختار واقعی یک وب‌اپلیکیشن در دات‌نت کور.  
 ✨
 
 ---
 
 ### 🎯 معرفی پروژه
-## برای  [مشاهده دوره](https://toplearn.com/c/6275) کلیک کنید
 
 - مدیریت کتاب‌ها با دسته‌بندی، تصویر و فایل دانلودی
 - احراز هویت کاربران و نقش مدیر (پنل مدیریت)
